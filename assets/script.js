@@ -15,7 +15,8 @@ quiz.style.display = "none";
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startQuiz);
 next.addEventListener("click", nextF);
-var selectedAnswer = "Integer";
+var userInput = "";
+//var selectedAnswer = "Integer";
 
 
 function startQuiz() {
@@ -59,8 +60,15 @@ var quizQuestion = [
 
 
 function nextF (){
+    var ui = userInput;
+    //console.log(ui);
+    if (ui === quizQuestion[questionIndex].correctAnswer){
+        console.log("aa");
+        score=score+1;
+        console.log(score);
+    }
     questionIndex++;
-    console.log(questionIndex);
+    //console.log(questionIndex);
     count++;
     showQuestion(count);
 
@@ -68,7 +76,7 @@ function nextF (){
 
 function showQuestion (countQ) {
     q1.innerHTML = "<h3>"+quizQuestion[countQ].question+"<h3/>";
-    a1.textContent= quizQuestion[countQ].answers[0];
+    a1.innerHTML= quizQuestion[countQ].answers[0];
     a2.innerHTML= quizQuestion[countQ].answers[1];
     a3.innerHTML= quizQuestion[countQ].answers[2];
     a4.innerHTML= quizQuestion[countQ].answers[3];
@@ -84,12 +92,14 @@ function showQuestion (countQ) {
     
 }
 
-function selectedAnswer(){
-    a1.setAttribute("class","selected");
-    console.log(a1);
+function selectedAnswerA(){
+    userInput = a1.innerHTML;
+    //console.log(userInput);
+
 }
-selectedAnswer();
-//a1.addEventListener("click",selectedAnswer);
+
+a1.addEventListener("click",selectedAnswerA);
+
 
 
     
