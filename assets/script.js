@@ -67,29 +67,29 @@ function nextF (){
 }
 
 function showQuestion (countQ) {
-    //q1.innerHTML = "<h3>"+quizQuestion[countQ].question+"<h3/>";
-    //a1.innerHTML= quizQuestion[countQ].answers[0];
-    //a2.innerHTML= quizQuestion[countQ].answers[1];
-    //a3.innerHTML= quizQuestion[countQ].answers[2];
-    //a4.innerHTML= quizQuestion[countQ].answers[3];
-    display_question.innerHTML = `<h2>${questions[countQ].question}</h2>
-    <ul class = "option_group">
-    <li class = "option>${quizQuestion[countQ].answers[0]}</li>
-    <li class = "option>${quizQuestion[countQ].answers[1]}</li>
-    <li class = "option>${quizQuestion[countQ].answers[2]}</li>
-    <li class = "option>${quizQuestion[countQ].answers[3]}</li>
-    </ul>`;
+    q1.innerHTML = "<h3>"+quizQuestion[countQ].question+"<h3/>";
+    a1.textContent= quizQuestion[countQ].answers[0];
+    a2.innerHTML= quizQuestion[countQ].answers[1];
+    a3.innerHTML= quizQuestion[countQ].answers[2];
+    a4.innerHTML= quizQuestion[countQ].answers[3];
+    //display_question.innerHTML = `<h2>${questions[countQ].question}</h2>
+    // <ul class = "option_group">
+    // <li class = "option>${quizQuestion[countQ].answers[0]}</li>
+    //<li class = "option>${quizQuestion[countQ].answers[1]}</li>
+    // <li class = "option>${quizQuestion[countQ].answers[2]}</li>
+    //<li class = "option>${quizQuestion[countQ].answers[3]}</li>
+    //</ul>`;
     
     
     
 }
 
 function selectedAnswer(){
-    for (var i =0; i<option.length; i++){
-        
-    }
-
+    a1.setAttribute("class","selected");
+    console.log(a1);
 }
+selectedAnswer();
+//a1.addEventListener("click",selectedAnswer);
 
 
     
