@@ -16,7 +16,7 @@ startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startQuiz);
 next.addEventListener("click", nextF);
 var userInput = "";
-//var selectedAnswer = "Integer";
+
 
 
 function startQuiz() {
@@ -61,16 +61,26 @@ var quizQuestion = [
 
 function nextF (){
     var ui = userInput;
-    //console.log(ui);
-    if (ui === quizQuestion[questionIndex].correctAnswer){
-        console.log("aa");
+    console.log(ui);
+    console.log(questionIndex);
+    console.log(score);
+    if (ui == quizQuestion[questionIndex].correctAnswer){
+        console.log(ui);
+        console.log(quizQuestion[questionIndex].correctAnswer);
         score=score+1;
+
+    }
+    if (questionIndex<5){
+        questionIndex++;
+    //console.log(questionIndex);
+        count++;
+        showQuestion(count);
+    }
+
+    if (questionIndex==5){
         console.log(score);
     }
-    questionIndex++;
-    //console.log(questionIndex);
-    count++;
-    showQuestion(count);
+    
 
 }
 
@@ -94,11 +104,28 @@ function showQuestion (countQ) {
 
 function selectedAnswerA(){
     userInput = a1.innerHTML;
-    //console.log(userInput);
+    console.log(userInput);
+}
 
+function selectedAnswerB(){
+    userInput = a2.innerHTML;
+    //console.log(userInput);
+}
+
+function selectedAnswerC(){
+    userInput = a3.innerHTML;
+    //console.log(userInput);
+}
+
+function selectedAnswerD(){
+    userInput = a4.innerHTML;
+    console.log(userInput);
 }
 
 a1.addEventListener("click",selectedAnswerA);
+a2.addEventListener("click",selectedAnswerB);
+a3.addEventListener("click",selectedAnswerC);
+a4.addEventListener("click",selectedAnswerD);
 
 
 
