@@ -8,6 +8,8 @@ var a3 = document.querySelector("#a3");
 var a4 = document.querySelector("#a4");
 var display_question = document.querySelector(".questionsDisplayed");
 var next = document.querySelector("#next");
+var startAgain = document.querySelector("#start_again");
+var showHighestScore = document.querySelector("#show_highest_score");
 var questionIndex = 0;
 var score = 0;
 //var count = 0;
@@ -17,6 +19,7 @@ var your_score = document.querySelector("#your_score");
 var lastPage = document.querySelector("#last_page");
 quiz.style.display = "none";
 lastPage.style.display= "none";
+high_score_page.style.display = "none";
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startQuiz);
 next.addEventListener("click", nextF);
@@ -26,6 +29,7 @@ var userInput = "";
 
 function startQuiz() {
     firstPage.style.display= "none";
+    high_score_page.style.display = "none";
     startButton.disabled = true;    
     quiz.style.display =  "block";
     showQuestion(questionIndex);
@@ -137,16 +141,18 @@ a4.addEventListener("click",selectedAnswerD);
 
 function display_score(){
     quiz.style.display= "none";
-    firstPage.style.display= "none";    
+    firstPage.style.display= "none";  
+    high_score_page.style.display = "none";  
     document.querySelector("#last_page").style.display =  "block";
     //lastPage.style.display =  "block";
    
     
-    console.log(show_score);
+    //console.log(show_score);
    // console.log(Math.max.apply(Math, array_score));
     your_score.innerHTML = score;
-    localStorage.setItem("array_score", JSON.stringify(array_score.push(score)));
-    console.log(score);
+    array_score.push(score)
+    localStorage.setItem("array_score", JSON.stringify(array_score));
+    //console.log(score);
 
     //array_score.push(localStorage.getItem("score"));
     //localStorage.setItem("higest_score", JSON.stringify(array_score));
@@ -156,3 +162,19 @@ function display_score(){
     //console.log(Math.max.apply(Math, array_score))
 }
     
+
+startAgain.addEventListener("click", showFirstPage);
+showHighestScore.addEventListener("click",showHigestSCore);
+
+function showFirstPage() {
+    firstPage.style.display= "block"
+    console.log(firstPage);
+}
+
+function showHigestSCore(){
+    high_score_page.style.display = "block";
+    firstPage.style.display= "block"
+    var highScoreArray = JSON.parse(localStorage.getItem("array_score"));
+    console.log(Math.max.apply(Math, highScoreArray))
+
+}
