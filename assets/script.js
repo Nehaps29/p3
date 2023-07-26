@@ -11,7 +11,8 @@ var next = document.querySelector("#next");
 var questionIndex = 0;
 var score = 0;
 //var count = 0;
-var lastPage = document.querySelector(".last_page");
+var show_score = [];
+var lastPage = document.querySelector("#last_page");
 quiz.style.display = "none";
 lastPage.style.display= "none";
 startButton.addEventListener("click", startQuiz);
@@ -67,7 +68,7 @@ function nextF (){
     //console.log(questionIndex);
     //console.log(score);
     if (ui == quizQuestion[questionIndex].correctAnswer){
-        console.log(ui);
+        //console.log(ui);
         //console.log(quizQuestion[questionIndex].correctAnswer);
         score=score+1;
 
@@ -103,13 +104,12 @@ function showQuestion (countQ) {
     //<li class = "option>${quizQuestion[countQ].answers[3]}</li>
     //</ul>`;
     
-    
-    
+   
 }
 
 function selectedAnswerA(){
     userInput = a1.innerHTML;
-    console.log(userInput);
+    //console.log(userInput);
 }
 
 function selectedAnswerB(){
@@ -124,7 +124,7 @@ function selectedAnswerC(){
 
 function selectedAnswerD(){
     userInput = a4.innerHTML;
-    console.log(userInput);
+    //console.log(userInput);
 }
 
 a1.addEventListener("click",selectedAnswerA);
@@ -136,10 +136,12 @@ a4.addEventListener("click",selectedAnswerD);
 function display_score(){
     quiz.style.display= "none";
     firstPage.style.display= "none";    
-    document.querySelector(".last_page").style.display =  "block";
+    document.querySelector("#last_page").style.display =  "block";
     //lastPage.style.display =  "block";
+    var final_score = score;
+    show_score.push(final_score);
     
-    console.log(score);
-    console.log("test");
+    //console.log(score);
+    //console.log("test");
 }
     
