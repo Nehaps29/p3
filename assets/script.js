@@ -11,7 +11,8 @@ var next = document.querySelector("#next");
 var questionIndex = 0;
 var score = 0;
 //var count = 0;
-var show_score = [];
+//var array_score = [];
+var array_score = JSON.parse(localStorage.getItem("array_score")) || [];
 var your_score = document.querySelector("#your_score");
 var lastPage = document.querySelector("#last_page");
 quiz.style.display = "none";
@@ -139,11 +140,19 @@ function display_score(){
     firstPage.style.display= "none";    
     document.querySelector("#last_page").style.display =  "block";
     //lastPage.style.display =  "block";
-    var final_score = score;
-    show_score.push(final_score);
+   
+    
+    console.log(show_score);
+   // console.log(Math.max.apply(Math, array_score));
     your_score.innerHTML = score;
-    //console.log(show_score);
+    localStorage.setItem("array_score", JSON.stringify(array_score.push(score)));
     console.log(score);
+
+    //array_score.push(localStorage.getItem("score"));
+    //localStorage.setItem("higest_score", JSON.stringify(array_score));
+    
+    //console.log(score);
     //console.log("test");
+    //console.log(Math.max.apply(Math, array_score))
 }
     
