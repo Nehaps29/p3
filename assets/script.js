@@ -10,8 +10,9 @@ var display_question = document.querySelector(".questionsDisplayed");
 var next = document.querySelector("#next");
 var questionIndex = 0;
 var score = 0;
-var count = 0;
+//var count = 0;
 quiz.style.display = "none";
+//last_page.style.display= "none";
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startQuiz);
 next.addEventListener("click", nextF);
@@ -23,7 +24,7 @@ function startQuiz() {
     firstPage.style.display= "none";
     startButton.disabled = true;    
     quiz.style.display =  "block";
-    showQuestion(count);
+    showQuestion(questionIndex);
 }   
 
 var quizQuestion = [
@@ -61,26 +62,29 @@ var quizQuestion = [
 
 function nextF (){
     var ui = userInput;
-    console.log(ui);
-    console.log(questionIndex);
-    console.log(score);
+    //console.log(ui);
+    //console.log(questionIndex);
+    //console.log(score);
     if (ui == quizQuestion[questionIndex].correctAnswer){
         console.log(ui);
-        console.log(quizQuestion[questionIndex].correctAnswer);
+        //console.log(quizQuestion[questionIndex].correctAnswer);
         score=score+1;
 
     }
-    if (questionIndex<5){
-        questionIndex++;
-    //console.log(questionIndex);
-        count++;
-        showQuestion(count);
-    }
-
-    if (questionIndex==5){
-        console.log(score);
+    console.log("here is question index: ", questionIndex);
+    if (questionIndex==4){
+    ///console.log("inside this");
+       display_score();
+       
+       return
     }
     
+    if (questionIndex<5){
+        questionIndex++;
+        console.log(questionIndex);
+        //count++;
+        showQuestion(questionIndex);
+    }
 
 }
 
@@ -128,5 +132,12 @@ a3.addEventListener("click",selectedAnswerC);
 a4.addEventListener("click",selectedAnswerD);
 
 
-
+function display_score(){
+    quiz.style.display= "none";
+    firstPage.style.display= "none";    
+    //last_page.style.display =  "block";
+    
+    console.log(score);
+    console.log("test");
+}
     
