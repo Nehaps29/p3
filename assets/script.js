@@ -12,6 +12,7 @@ var questionIndex = 0;
 var score = 0;
 //var count = 0;
 var show_score = [];
+var your_score = document.querySelector("#your_score");
 var lastPage = document.querySelector("#last_page");
 quiz.style.display = "none";
 lastPage.style.display= "none";
@@ -73,7 +74,7 @@ function nextF (){
         score=score+1;
 
     }
-    console.log("here is question index: ", questionIndex);
+    //console.log("here is question index: ", questionIndex);
     if (questionIndex==4){
     ///console.log("inside this");
        display_score();
@@ -83,7 +84,7 @@ function nextF (){
     
     if (questionIndex<5){
         questionIndex++;
-        console.log(questionIndex);
+        //console.log(questionIndex);
         //count++;
         showQuestion(questionIndex);
     }
@@ -140,8 +141,9 @@ function display_score(){
     //lastPage.style.display =  "block";
     var final_score = score;
     show_score.push(final_score);
-    
-    //console.log(score);
+    your_score.innerHTML = score;
+    //console.log(show_score);
+    console.log(score);
     //console.log("test");
 }
     
