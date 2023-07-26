@@ -11,8 +11,9 @@ var next = document.querySelector("#next");
 var questionIndex = 0;
 var score = 0;
 //var count = 0;
+var lastPage = document.querySelector(".last_page");
 quiz.style.display = "none";
-//last_page.style.display= "none";
+lastPage.style.display= "none";
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startQuiz);
 next.addEventListener("click", nextF);
@@ -135,7 +136,8 @@ a4.addEventListener("click",selectedAnswerD);
 function display_score(){
     quiz.style.display= "none";
     firstPage.style.display= "none";    
-    //last_page.style.display =  "block";
+    document.querySelector(".last_page").style.display =  "block";
+    //lastPage.style.display =  "block";
     
     console.log(score);
     console.log("test");
